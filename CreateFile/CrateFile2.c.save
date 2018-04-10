@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int[] worker(int, char*[]);
+int subworker(int, char[]);
+
+int main(int argc, char* argv[]){
+	int i = 0;
+	FILE* fp = NULL;
+
+	if(0 == argc){
+		perror("Fehler in FILE* Erzeugung: Dateiname fehlt");
+		return 1;
+	}
+	fp = fopen(argv[argc],"w");
+	if(NULL == fp){
+		perror("Fehler in FILE* Erzeugung: NULL-Exception");
+		return 2;
+	}
+
+	do{
+		worker(i, argv);
+		i = i++;
+	}while(i<argc-1);
+
+	return EXIT_SUCCESS;
+}
+
+
+	char c;
+	int settings[2] = [100,100];
+	if('-' == str[0]){
+		switch(str[1])){
+			case 'h': printf("-h Gibt die Hilfe aus\n");
+				  printf("-n Anzahl der Zahlen\n");
+				  printf("-r Zahlenbereich\n");
+				  break;
+			case 'n': settings[0] = subworker(str);
+				  break;
+			case 'r': settings[1] = subworker(str);
+				  break;
+		}
+	}
+}
